@@ -1,0 +1,101 @@
+<div class="container px-0">
+	<div class="alert alert-success" role="alert" *ngIf="saveSuccess">
+		{{ action === 'edit' ? "User Record Updated!" : "User Record Created!" }}
+	</div>
+	<form [formGroup]="trusteeForm" (ngSubmit)="onSubmit()">
+		<div class="card">
+			<div class="card-header bg-info">
+				<span class="float-left text-light">Personal details</span>
+				<span class="float-right">
+					<a href="" class="text-light" (click)="$event.preventDefault();resetForm();">Reset</a>
+				</span>
+			</div>
+			<div class="card-body">
+				<div class="row pt-3">
+					<label for="prefix" class="col-sm-2 col-form-label">Prefix</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="prefix" formControlName="prefix">
+							<option value="Mr">Mr</option>
+							<option value="Mrs">Mrs</option>
+						</select>
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('prefix','required') ? 'visible': 'hidden'">Please select</small>
+					</div>
+
+					<label for="isClientLiving" class="col-sm-2 col-form-label">Is Client Living?</label>
+					<div class="col-sm-2">
+						<div class="form-check">
+						  <input class="form-check-input" type="radio" name="clientLivingState" id="yes-btn" 
+						  	value="Yes" formControlName="clientLivingState">
+						  <label class="form-check-label" for="yes-btn">Yes</label>
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="radio" name="clientLivingState" id="no-btn" 
+						  	value="No" checked formControlName="clientLivingState">
+						  <label class="form-check-label" for="no-btn">No</label>
+						</div>
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('clientLivingState','required') ? 'visible': 'hidden'">Please select</small>
+					</div>
+
+					<label for="countryOfResidence" class="col-sm-2 col-form-label">Country of Residence</label>
+					<div class="col-sm-2">
+						<select class="form-control" name="countryOfResidence" formControlName="countryOfResidence">
+							<option value="India">India</option>
+							<option value="Australia">Australia</option>
+							<option value="Malaysia">Malaysia</option>
+						</select>
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('countryOfResidence','required') ? 'visible': 'hidden'">Please select</small>
+					</div>
+				</div>
+
+				<div class="row pt-3">
+					<label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+					<div class="col-sm-2">
+						<input type="text" name="firstName" formControlName="firstName" class="form-control">
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('firstName','required') ? 'visible': 'hidden'">Please enter</small>
+					</div>
+
+					<label for="middleName" class="col-sm-2 col-form-label">Middle Name</label>
+					<div class="col-sm-2">
+						<input type="text" name="middleName" formControlName="middleName" class="form-control">
+					</div>
+
+					<label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+					<div class="col-sm-2">
+						<input type="text" name="lastName" formControlName="lastName" class="form-control">
+					</div>
+				</div>
+				<div class="row pt-3">
+					<label for="ssn" class="col-sm-2 col-form-label">SSN</label>
+					<div class="col-sm-2">
+						<input type="text" name="ssn" formControlName="ssn" class="form-control" placeholder="xxxx-xxx-xxx">
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('ssn','required','pattern') ? 'visible': 'hidden'">Please enter valid input</small>
+					</div>
+
+					<label for="passport" class="col-sm-2 col-form-label">Passport</label>
+					<div class="col-sm-2">
+						<input type="text" name="passport" formControlName="passport" class="form-control" placeholder="Enter 10 digit number">
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('passport','required','pattern') ? 'visible': 'hidden'">Please enter valid input</small>
+					</div>
+
+					<label for="issuanceDate" class="col-sm-2 col-form-label">Issuance Date</label>
+					<div class="col-sm-2">
+						<input type="text" name="issuanceDate" formControlName="issuanceDate" class="form-control" placeholder="dd/mm/yyyy">
+						<small class="form-text text-danger" 
+							[style.visibility]="isInvalid('issuanceDate','required','pattern') ? 'visible': 'hidden'">Please enter valid input</small>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer">
+				<button type="submit" class="btn btn-info float-right" [disabled]="isSubmitted && trusteeForm.valid">
+					{{ action === 'edit' ? 'Save changes' : 'Submit' }}
+				</button>
+			</div>
+		</div>
+	</form>
+</div>

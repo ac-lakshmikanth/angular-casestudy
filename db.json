@@ -1,0 +1,40 @@
+{
+  "trustees": [
+    {
+      "prefix": "Mrs",
+      "clientLivingState": "Yes",
+      "countryOfResidence": "India",
+      "firstName": "Lakshmi Kantha",
+      "middleName": "A",
+      "lastName": "C",
+      "ssn": "1111-111-111",
+      "passport": "1234567890",
+      "issuanceDate": "12/12/2018",
+      "id": 3
+    },
+    {
+      "prefix": "Mr",
+      "clientLivingState": "No",
+      "countryOfResidence": "India",
+      "firstName": "Lakshmi Kantha",
+      "middleName": "A",
+      "lastName": "C",
+      "ssn": "8888-888-888",
+      "passport": "1234567890",
+      "issuanceDate": "12/12/2018",
+      "id": 5
+    },
+    {
+      "prefix": "Mr",
+      "clientLivingState": "No",
+      "countryOfResidence": "India",
+      "firstName": "Lakshmi Kantha",
+      "middleName": "A",
+      "lastName": "C",
+      "ssn": "1111-111-111",
+      "passport": "1234567890",
+      "issuanceDate": "12/12/2018",
+      "id": 6
+    }
+  ]
+}
